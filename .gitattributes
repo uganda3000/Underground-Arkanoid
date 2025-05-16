@@ -1,0 +1,13 @@
+# Считать .py файлы как Python (на всякий случай)  
+*.py linguist-detectable  
+
+# Игнорировать Jupyter-ноутбуки (если они есть)  
+*.ipynb linguist-documentation  
+
+# Игнорировать бинарные/конфиги (если мешают)  
+*.csv linguist-vendored  
+*.json linguist-generated  
+
+/venv/* linguist-vendored  
+/__pycache__/* linguist-vendored  
+/data/* linguist-vendored  
