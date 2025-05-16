@@ -11,3 +11,5 @@
 /venv/* linguist-vendored  
 /__pycache__/* linguist-vendored  
 /data/* linguist-vendored  
+
+*.py linguist-language=Python
