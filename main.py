@@ -15,6 +15,7 @@ variatios = [
 ]
 choise_caption = random.choice(variatios)
 pygame.display.set_caption(choise_caption)
+pygame.display.set_icon(pygame.image.load('data/textures/icon1.png'))
 
 clock = pygame.time.Clock()
 FPS = 60
