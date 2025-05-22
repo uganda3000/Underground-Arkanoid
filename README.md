@@ -25,12 +25,11 @@
 
 # Underground arkanoid!
 
-There are:
-1. Your own textures (Background, ramp, stone blocks, win/lose screen).
-    2. Music.
-    3. The system of records.
-    4. Sound (Taken from the Internet).
-    5. And much more.
+### 1. Your own textures (Background, ramp, stone blocks, win/lose screen).
+### 2. Music.
+### 3. The system of records.
+### 4. Sound (Taken from the Internet).
+### 5. And much more.
 
 ## 📻 Audio content  
 ### 🎵 Background music  
@@ -42,4 +41,8 @@ There are:
   → Used in accordance with the site policy for non-commercial use.
 
 
+<<<<<<< HEAD
  > This is a demo project without monetization. It is not intended for commercial use.
+=======
+> ℹ️ This is a demo project without monetization. It is not intended for commercial use.
+>>>>>>> fc1bcfe0e17774bc69ec7843283bd1cc4a08a615
