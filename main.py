@@ -36,7 +36,8 @@ PADDLE_SPEED = 12
 BALL_SIZE = 15
 ball_x = WIDTH // 2
 ball_y = HEIGHT // 2
-ball_speed_x = 5
+ball_x_choice = [5, -5]
+ball_speed_x = random.choice(ball_x_choice)
 ball_speed_y = 5
 
 vol_bg = 0.1
@@ -47,18 +48,19 @@ block_texture = pygame.image.load('data/textures/block1.png')
 game_over_texture = pygame.image.load('data/textures/gameover1.png')
 win_texture = pygame.image.load('data/textures/win1.png')
 bg_texture = pygame.image.load('data/textures/bg2.png')
+ball_texture = pygame.image.load('data/textures/ball1.png')
 
 # Музика и звучки
 bg_music = pygame.mixer.music.load("data/music/bg.ogg")
 collision_music = pygame.mixer.Sound("data/music/knock.ogg")
+
 pygame.mixer.music.set_volume(vol_bg)
 collision_music.set_volume(vol_sound)
 pygame.mixer.music.play(-1)
 
 score = 0
+level = 1
 record = int(open("data/record.txt").read())
-
-
 
 font = pygame.font.SysFont(None, 36)
 win_font = pygame.font.SysFont(None, 125)
@@ -120,12 +122,26 @@ while game_run:
     # Отображение всего
     screen.blit(bg_texture, (0, 0))
     screen.blit(paddle_texture, (paddle_x, paddle_y))
-    pygame.draw.ellipse(screen, BALL_COLOR, ball_rect)
+    screen.blit(ball_texture, (ball_x, ball_y))
 
     for block in blocks:
         screen.blit(block_texture, block)
-    
-        # Проверка на проигрыш
+
+    score_text = font.render(f"Очки: {score}", True, TEXT_COLOR)
+    record_text = font.render(f"Рекорд: {record}", True, TEXT_COLOR)
+    screen.blit(score_text, (10, 10))
+    screen.blit(record_text, (900, 10))
+
+    if level == 2:
+        level_text = font.render(f"Уровень: {level} (Финальный)", True, TEXT_COLOR)
+        screen.blit(level_text, (WIDTH // 2 - 145, 10))
+    else:
+        level_text = font.render(f"Уровень: {level}", True, TEXT_COLOR)
+        screen.blit(level_text, (WIDTH // 2 - 55, 10))
+
+    pygame.display.flip()
+    clock.tick(FPS)
+
     if score < 0:
         screen.blit(game_over_texture, (0, 0))
         pygame.display.flip()
@@ -133,26 +149,30 @@ while game_run:
         game_run = False
 
     if not blocks:
-        screen.blit(win_texture, (0, 0))
-        win_text = win_font.render(str(score), True, TEXT_COLOR2)
-        if score > record:
-            open("data/record.txt", "w").write(str(score))
+        level += 1
+        if level < 3:
+            for row in range(3):
+                for col in range(5):
+                    block_x = col * (BLOCK_WIDTH + 90) + 60
+                    block_y = row * (BLOCK_HEIGHT + 20) + 40
+                    block_rect = pygame.Rect(block_x, block_y, BLOCK_WIDTH, BLOCK_HEIGHT)
+                    blocks.append(block_rect)
+            ball_x = WIDTH // 2
+            ball_y = HEIGHT // 2
+            ball_speed_x = random.choice(ball_x_choice)
 
-        if score >= 100:
-            screen.blit(win_text, (WIDTH // 2 - 10, 495))
         else:
-            screen.blit(win_text, (WIDTH // 2, 495))
-        
-        pygame.display.flip()
-        pygame.time.wait(3000)
-        game_run = False
+            screen.blit(win_texture, (0, 0))
+            win_text = win_font.render(str(score), True, TEXT_COLOR2)
+            if score > record:
+                open("data/record.txt", "w").write(str(score))
+            if score >= 100:
+                screen.blit(win_text, (WIDTH // 2 - 10, 495))
+            else:
+                screen.blit(win_text, (WIDTH // 2, 495))
 
-    score_text = font.render(f"Очки: {score}", True, TEXT_COLOR)
-    record_text = font.render(f"Рекорд: {record}", True, TEXT_COLOR)
-    screen.blit(score_text, (10, 10))
-    screen.blit(record_text, (900, 10))
-
-    pygame.display.flip()
-    clock.tick(FPS)
+            pygame.display.flip()
+            pygame.time.wait(3000)
+            game_run = False
 
 pygame.quit()

@@ -32,7 +32,7 @@ There are:
     4. Sound (Taken from the Internet).
     5. And much more.
 
-## 📻 ## Audio content  
+## 📻 Audio content  
 ### 🎵 Background music  
 - 8-bit music from the [ZvukiPro] archive (https://zvuk pro.com )
 → Are used in accordance with the site's policy for non-commercial use.
@@ -42,4 +42,4 @@ There are:
   → Used in accordance with the site policy for non-commercial use.
 
 
- This is a demo project without monetization. It is not intended for commercial use.
+ > This is a demo project without monetization. It is not intended for commercial use.
