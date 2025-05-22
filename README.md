@@ -25,12 +25,11 @@
 
 # Underground arkanoid!
 
-There are:
-1. Your own textures (Background, ramp, stone blocks, win/lose screen).
-    2. Music.
-    3. The system of records.
-    4. Sound (Taken from the Internet).
-    5. And much more.
+### 1. Your own textures (Background, ramp, stone blocks, win/lose screen).
+### 2. Music.
+### 3. The system of records.
+### 4. Sound (Taken from the Internet).
+### 5. And much more.
 
 ## 📻 Audio content  
 ### 🎵 Background music  
