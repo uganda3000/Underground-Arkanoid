@@ -41,4 +41,4 @@
   → Used in accordance with the site policy for non-commercial use.
 
 
-> This is a demo project without monetization. It is not intended for commercial use.
+> ℹ️ This is a demo project without monetization. It is not intended for commercial use.
