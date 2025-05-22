@@ -40,9 +40,4 @@
 - 8-bit sounds from the [ZvukiPro] archive (https://zvuk pro.com )  
   → Used in accordance with the site policy for non-commercial use.
 
-
-<<<<<<< HEAD
- > This is a demo project without monetization. It is not intended for commercial use.
-=======
 > ℹ️ This is a demo project without monetization. It is not intended for commercial use.
->>>>>>> fc1bcfe0e17774bc69ec7843283bd1cc4a08a615
